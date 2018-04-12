@@ -143,6 +143,7 @@ def connectionLogsForDevice(args):
 def lastEvent(args):
 	global client
 	result = []
+	print("args: " + args[0] + " " + args[1])
 	if len(args) == 2:
 		result = client.api.getLastEvents(args[0], args[1])
 	elif len(args) == 3:
@@ -353,7 +354,8 @@ if __name__ == "__main__":
 		
 		while True:
 			try:
-				command = raw_input("%s@%s > " % (options['auth-key'], options['org']))
+#				command = raw_input("%s@%s > " % (options['auth-key'], options['org']))
+				command = input("%s@%s > " % (options['auth-key'], options['org']))
 				words = command.split()
 				processCommandInput(words)
 
